@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Sign In</title>
+<link rel ="stylesheet" type="text/css" href="user signin.css">
+</head>
+<body>
+<div class="content">
+    <form id="userSigninform">
+        <h2>User Sign In</h2>
+        <input type="text" id="userSigninUsername" placeholder="Username">
+        <input type="password" id="userSigninPassword" placeholder="Password">
+        <input type="submit" value="Sign In">
+        <a href="index.html" style="text-decoration: none; color: #fff; display: block; text-align: center; margin-top: 10px;">Forgot Password?</a>
+    </form>
+</div>
+<script>
+function validateUserSigninform() {
+    var username = document.getElementById("userSigninUsername").value;
+    var password = document.getElementById("userSigninPassword").value;
+    if (username === "" || password === "") {
+        alert("Ops! Both Username and Password required.");
+        return false;
+    } else {
+        alert("Woah! User Signin successful!");
+        return true;
+    }
+}
+document.getElementById("userSigninform").addEventListener("submit", function(event) {
+    if (!validateUserSigninform()) {
+        event.preventDefault();
+    }
+});
+  // Script to handle forgot password.
+  document.querySelector('a[href="index.html"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior (navigation)
+    window.location.href = this.getAttribute('href'); // Redirect to the Forgot Password page
+});
+</script>
+</body>
+</html>
