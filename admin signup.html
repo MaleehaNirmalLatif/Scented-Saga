@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Sign Up</title>
+<link rel ="stylesheet" type="text/css" href="admin signup.css">
+</head>
+<body>
+<div class="content">
+    <form id="adminsignupform">
+        <h2>Admin Sign Up</h2>
+        <input type="text" id="adminUsername" placeholder="Username">
+        <input type="password" id="adminPassword" placeholder="Password">
+        <input type="email" id="adminEmail" placeholder="Email">
+        <input type="text" id="adminFullName" placeholder="Full Name">
+        <input type="number" id="adminAge" placeholder="Age">
+        <input type="text" id="adminAddress" placeholder="Address">
+        <input type="text" id="adminCity" placeholder="City">
+        <select id="adminAbility">
+            <option value="">Select Special Ability</option>
+            <option value="Time management">Time management</option>
+            <option value="leadership">Leadership</option>
+            <option value="Multitasking">Multitasking</option>
+            <option value="Efficiency">Efficient</option>
+            <option value="Responsibility">Responsible</option>
+            <option value="All of above">Each of them</option>
+        </select>
+        <input type="submit" value="Sign Up">
+    </form>
+</div>
+<script>
+function validateAdminSignupform() {
+    var username = document.getElementById("adminUsername").value;
+    var password = document.getElementById("adminPassword").value;
+    var email = document.getElementById("adminEmail").value;
+    var age = document.getElementById("adminAge").value;
+    var fullName = document.getElementById("adminFullName").value;
+    var address = document.getElementById("adminAddress").value;
+    var city = document.getElementById("adminCity").value;
+    var ability = document.getElementById("adminAbility").value;
+
+    if (username === "" || password === "" || email === "" || age === "" || fullName === "" || address === "" || city === "" || ability === "")   {
+        alert("Ops! All fields required");
+        return false;
+    }
+    if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password)) {
+        alert("For the password to be strong, it must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long");
+        return false;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Invalid email address");
+        return false;
+    }
+
+    if (isNaN(age) || age < 18 || age > 100) {
+        alert("Age must be a number between 18 and 100");
+        return false;
+    }
+
+    alert("Congratulations! You have a special ability of " + ability + ".");
+    return true;
+}
+
+document.getElementById("adminsignupform").addEventListener("submit", function(event) {
+    if (!validateAdminSignupform()) {
+        event.preventDefault();
+    }
+});
+</script>
+</body>
+</html>
+
+

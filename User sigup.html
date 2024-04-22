@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Sign Up</title>
+<link rel ="stylesheet" type="text/css" href="user signup.css">
+</head>
+<body>
+<div class="content">
+    <form id="signupform">
+        <h2>User Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Username">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="text" id="signupFullName" placeholder="Full Name">
+        <input type="number" id="signupAge" placeholder="Age">
+        <input type="text" id="signupAddress" placeholder="Address">
+        <input type="text" id="signupCity" placeholder="City">
+        <select id="signupReason">
+            <option value="">Why are you interested in making an account?</option>
+            <option value="browsing">For just browsing</option>
+            <option value="buying">For buying</option>
+        </select>
+        <input type="submit" value="Sign Up">
+    </form>
+</div>
+<script>
+function validateSignupform() {
+    var username = document.getElementById("signupUsername").value;
+    var password = document.getElementById("signupPassword").value;
+    var email = document.getElementById("signupEmail").value;
+    var age = document.getElementById("signupAge").value;
+    var fullName = document.getElementById("signupFullName").value;
+    var address = document.getElementById("signupAddress").value;
+    var city = document.getElementById("signupCity").value;
+    var reason = document.getElementById("signupReason").value;
+
+    if (username === "" || password === "" || email === "" || age === "" || fullName === "" || address === "" || city === "" || reason === "")   {
+        alert("Ops! All fields required");
+        return false;
+    }
+    if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password)) {
+        alert("For the password to be strong, it must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long");
+        return false;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Invalid email address");
+        return false;
+    }
+
+    if (isNaN(age) || age < 18 || age > 100) {
+        alert("Age must be a number between 18 and 100");
+        return false;
+    }
+
+    if (reason === "buying") {
+        alert("Congrats! You are the part of Scented Saga Family :) and your choice is amazing.");
+    } else if (reason === "browsing") {
+        alert("Congrats! You are the part of Scented Saga Family :) and your choice is good.");
+    }
+
+    return true;
+}
+
+document.getElementById("signupform").addEventListener("submit", function(event) {
+    if (!validateSignupform()) {
+        event.preventDefault();
+    }
+});
+</script>
+</body>
+</html>
+
