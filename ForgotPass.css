@@ -1,0 +1,66 @@
+body {
+    background-image: url("https://wallpapercave.com/wp/wp1879447.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #b2aaaa; /* Text color */
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.content {
+    width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    text-align: center;
+    animation: fadeIn 1s ease; /* Animation for fade-in effect */
+    margin-right: 50px; /* Adjust margin for positioning */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Light gray background */
+    color: #333; /* Text color */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+input[type="submit"],
+input[type="button"] {
+    background-color: #3d3939; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+}
+h2 {
+    color: #333; 
+    margin-top: 0;
+}
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+.reset-password-form {
+    display: none;
+}
